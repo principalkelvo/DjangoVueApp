@@ -1,9 +1,12 @@
 <template>
+<!-- title-->
     <div class="container">
         <div class="columns">
             <div class="column is-4 is-offset-4">
                 <h1 class="title">Log In</h1>
 
+
+        <!--form-->
                 <form>
                     <div class="field">
                         <label >Email</label>
