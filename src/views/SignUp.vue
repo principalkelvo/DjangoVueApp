@@ -41,6 +41,10 @@
     </div>
 </template>
 <script>
+// talk to the background on errors
+import axios from 'axios'
+import {toast} from 'bulma-toast'
+
 export default {
     name: 'SignUp',
     data(){
