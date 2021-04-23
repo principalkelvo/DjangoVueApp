@@ -4,7 +4,7 @@
             <div class="column is-4 is-offset-4">
                 <h1 class="title">Sign Up</h1>
 
-                <form>
+                <form @submit.prevent="submitForm">
                     <div class="field">
                         <label >Email</label>
                         <div class="control">
@@ -35,6 +35,11 @@
 </template>
 <script>
 export default {
-    name: 'SignUp'
+    name: 'SignUp',
+    methods: {
+        submitForm(){
+            console.log('hello')
+        }
+    }
 }
 </script>
