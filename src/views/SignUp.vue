@@ -58,7 +58,46 @@ export default {
 
     methods: {
         submitForm(){
-            console.log('hello')
+            this.errors=[]
+            if(this.username===''){
+                this.errors.push('The username is missing')
+            }
+            if(this.password1===''){
+                this.errors.push('the password is too short')
+            }
+            if(this.password1 !== this.password2){
+                this.errors.push('the passwords are not matching')
+            }if(!this.errors.length){
+                const formData ={
+                    username: this.username,
+                    password: this.password1
+                }
+                axios
+                .post('api/v1/users/',formData)
+                //push a toast message on the bottom of the page
+                .then(response=>{
+                    toast({
+                        message:'Account was created, please login',
+                        type:'is-success',
+                        dismissible: true,
+                        pauseOnHover: true,
+                        duration: 2000,
+                        position: bottom-right
+                    })
+                    this.$router.push('/log-in')
+                })
+               //catch errors 
+                .catch(error=>{
+                    if(error.response){
+                        for(const property in error.response.data){
+                            this.errors.push('${property}:${error.response.data[property]}')
+                        }
+                    }
+                    else if(error.message){
+                        this.errors.push('Something went wrong. Please try again')
+                    }
+                })
+            }
         }
     }
 }
