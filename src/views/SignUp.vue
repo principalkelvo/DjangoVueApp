@@ -8,21 +8,24 @@
                     <div class="field">
                         <label >Email</label>
                         <div class="control">
-                            <input type="email" name="email" class="input">
+                            <input type="email" name="email" class="input" v-model="username">
                         </div>
                     </div>
                     <div class="field">
                         <label >Password</label>
                         <div class="control">
-                            <input type="password" name="password1" class="input">
+                            <input type="password" name="password1" class="input" v-model="password1">
                         </div>
                     </div>
                     <div class="field">
                         <label >Repeate Password</label>
                         <div class="control">
-                            <input type="password" name="password2" class="input">
+                            <input type="password" name="password2" class="input" v-model="password2">
                         </div>
                     </div>
+
+                    <!--errors will be shown here-->
+                    
                     <div class="field">
                         <div class="control">
                             <button class="button-is-success">Submit</button>
@@ -36,6 +39,14 @@
 <script>
 export default {
     name: 'SignUp',
+    data(){
+        return{
+            username:'',
+            password1:'',
+            password2:''
+        }
+    },
+
     methods: {
         submitForm(){
             console.log('hello')
