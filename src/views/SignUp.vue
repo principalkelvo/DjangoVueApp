@@ -25,7 +25,11 @@
                     </div>
 
                     <!--errors will be shown here-->
-                    
+                    <div class="notification is-danger" v-if="errors.length">
+                        <!--go through all errors-->
+                        <p v-for="error in errors" v-bind:key="error">{{error}}</p>
+                    </div>
+
                     <div class="field">
                         <div class="control">
                             <button class="button-is-success">Submit</button>
@@ -43,7 +47,8 @@ export default {
         return{
             username:'',
             password1:'',
-            password2:''
+            password2:'',
+            errors:[]
         }
     },
 
