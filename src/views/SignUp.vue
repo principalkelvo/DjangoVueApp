@@ -83,12 +83,11 @@ export default {
                             dismissible: true,
                             pauseOnHover: true,
                             duration: 2000,
-                            position: bottom-right
+                            position: 'bottom-right',
                         })
 
                         this.$router.push('/log-in')
                         console.log("response")
-                        console.log(response.username)
                         
                     })
                      //catch errors 
