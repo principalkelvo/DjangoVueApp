@@ -72,31 +72,36 @@ export default {
                     username: this.username,
                     password: this.password1
                 }
+
                 axios
-                .post('api/v1/users/',formData)
-                //push a toast message on the bottom of the page
-                .then(response=>{
-                    toast({
-                        message:'Account was created, please login',
-                        type:'is-success',
-                        dismissible: true,
-                        pauseOnHover: true,
-                        duration: 2000,
-                        position: bottom-right
+                    .post('api/v1/users/', formData)
+                    .then(response=> {
+                        //push a toast message on the bottom of the page
+                        toast({
+                            message:'Account was created, please login',
+                            type:'is-success',
+                            dismissible: true,
+                            pauseOnHover: true,
+                            duration: 2000,
+                            position: bottom-right
+                        })
+
+                        this.$router.push('/log-in')
+                        console.log("response")
+                        console.log(response.username)
+                        
                     })
-                    this.$router.push('/log-in')
-                })
-               //catch errors 
-                .catch(error=>{
-                    if(error.response){
-                        for(const property in error.response.data){
-                            this.errors.push(`${property}: ${error.response.data[property]}`)
+                     //catch errors 
+                    .catch(error => {
+                        if(error.response){
+                            for(const property in error.response.data){
+                                this.errors.push(`${property}: ${error.response.data[property]}`)
+                            }
                         }
-                    }
-                    else if(error.message){
-                        this.errors.push('Something went wrong. Please try again')
-                    }
-                })
+                        else if(error.message){
+                            this.errors.push('Something went wrong. Please try again')
+                        }
+                    })
             }
         }
     }
