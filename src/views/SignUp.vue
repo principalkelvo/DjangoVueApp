@@ -57,7 +57,7 @@ export default {
     },
 
     methods: {
-        submitForm(){
+        async submitForm(){
             this.errors=[]
             if(this.username===''){
                 this.errors.push('The username is missing')
@@ -68,12 +68,16 @@ export default {
             if(this.password1 !== this.password2){
                 this.errors.push('the passwords are not matching')
             }if(!this.errors.length){
+                //loading bar
+                this.$store.commit('setIsLoading',true)
+
+                //send data to server
                 const formData ={
                     username: this.username,
                     password: this.password1
                 }
 
-                axios
+                await axios
                     .post('api/v1/users/', formData)
                     .then(response=> {
                         //push a toast message on the bottom of the page
@@ -101,6 +105,8 @@ export default {
                             this.errors.push('Something went wrong. Please try again')
                         }
                     })
+
+                    this.$store.commit('setIsLoading', false)
             }
         }
     }
