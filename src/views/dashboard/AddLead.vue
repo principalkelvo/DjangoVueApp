@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">AddLead/h1>
+                <h1 class="title">AddLead</h1>
             </div>
             <div class="column is-12">
                 <form @submit.prevent="submitForm">
@@ -60,24 +60,28 @@
                     <div class="field">
                         <label>Status</label>
                         <div class="control">
-                            <select class="select" v-model="status">
-                                <option value="new">New</option>
-                                <option value="contacted">Contacted</option>
-                                <option value="inprogress">In Progress</option>
-                                <option value="lost">Lost</option>
-                                <option value="won">Won</option>
-                            </select>
+                            <div class="select">
+                                <select v-model="status">
+                                    <option value="new">New</option>
+                                    <option value="contacted">Contacted</option>
+                                    <option value="inprogress">In Progress</option>
+                                    <option value="lost">Lost</option>
+                                    <option value="won">Won</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!--Priority field with select item-->
                     <div class="field">
                         <label>Priority</label>
                         <div class="control">
-                            <select class="select" v-model="priority">
+                            <div class="select">
+                            <select v-model="priority">
                                 <option value="low">Low</option>
                                 <option value="medium">Medium</option>
                                 <option value="high">High</option>
                             </select>
+                            </div>
                         </div>
                     </div>
                     <!--submit button-->
