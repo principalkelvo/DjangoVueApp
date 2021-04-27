@@ -53,7 +53,7 @@ const routes = [
     }
   },
   {
-    path: '/dashboard/addlead',
+    path: '/dashboard/leads/add',
     name: 'AddLead',
     component: AddLead,
     meta: {
