@@ -3,6 +3,8 @@
         <div class="columns is-multiline">
             <div class="column is-12">
                 <h1 class="title">Leads</h1>
+
+                <router-link to="/dashboard/leads/add">Add lead</router-link>
             </div>
 
             <div class="column is-12 ">
