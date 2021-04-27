@@ -53,6 +53,14 @@ const routes = [
     }
   },
   {
+    path: '/dashboard/addlead',
+    name: 'AddLead',
+    component: AddLead,
+    meta: {
+      requireLogin:true
+    }
+  },
+  {
     path: '/dashboard/my-account',
     name: 'MyAccount',
     component: MyAccount,
