@@ -47,13 +47,13 @@ export default {
             this.$store.commit('setIsLoading', true)
 
             axios
-            .get('/api/v1/leads/')
-            .then(response=>{
-                this.leads= response.data
-            })
-            .catch(error=>{
-                console.log(error)
-            })
+                .get('/api/v1/leads/')
+                .then(response=>{
+                    this.leads= response.data
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
 
             this.$store.commit('setIsLoading', false)
         }
