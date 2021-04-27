@@ -108,7 +108,7 @@ export default {
             contact_person:'',
             email:'',
             phone:'',
-            estimate_value:0,
+            estimated_value:0,
             confidence:0,
             website:'',
             status:'new',
@@ -126,7 +126,7 @@ export default {
                 email:this.email,
                 phone: this.phone,
                 website: this.website,
-                estimate_value: this.estimate_value,
+                estimated_value: this.estimated_value,
                 confidence: this.confidence,
                 status:this.status,
                 priority: this.priority
