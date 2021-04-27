@@ -1,10 +1,16 @@
 <template>
-<div>
-  <Navbar/>
-  <section class="section">
-  <router-view/>
-  </section>
-</div>
+  <div>
+    <Navbar/>
+
+    <!--and loading bar-->
+    <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading':$store.state.isLoading}">
+      <div class="lds-dual-ring"></div>
+    </div>
+
+    <section class="section">
+    <router-view/>
+    </section>
+  </div>
 </template>
 
 
