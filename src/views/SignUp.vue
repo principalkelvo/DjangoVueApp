@@ -98,7 +98,7 @@ export default {
                     .catch(error => {
                         if(error.response){
                             for(const property in error.response.data){
-                                this.errors.push(`${property}: ${error.response.data[property]}`)
+                                this.errors.push(`${property}: ${error.response.data[property]}`) //do not use quotes this are backslash
                             }
                         }
                         else if(error.message){
