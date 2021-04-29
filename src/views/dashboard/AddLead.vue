@@ -133,9 +133,9 @@ export default {
 
             }
             await axios
-                .post('api/v1/leads/', lead)
+                .post('/api/v1/leads/', lead)
                 .then(response=>{
-                    
+
                     console.log(response)
 
                     this.$router.push('/dashboard/leads')
