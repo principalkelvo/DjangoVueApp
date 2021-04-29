@@ -100,6 +100,7 @@
 </template>        
 <script>
 import axios from 'axios'
+
 export default {
     name: 'AddLead',
     data(){
@@ -117,7 +118,7 @@ export default {
     },
     methods:{
         async submitForm(){
-            console.log('submit form') //trial
+            
             this.$store.commit('setIsLoading', true)
 
             const lead= {

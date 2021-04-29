@@ -77,7 +77,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from,next)=>{
-  if(to.matched.some(record=> record.meta.requireLogin)&&!store.state.isAuthenticated){
+  if(to.matched.some(record=> record.meta.requireLogin) && !store.state.isAuthenticated){
     //if not authenticated go back to login page
     next('/log-in')
   }else{
