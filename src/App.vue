@@ -31,7 +31,7 @@ export default {
 
     //check if token exists
     if (this.$store.state.token){
-    axios.defaults.headers.common['Authorization']="Token" + this.$store.state.token
+    axios.defaults.headers.common['Authorization']="Token " + this.$store.state.token //remember the space after "Token"
     }
     //if you are not authenticated
   else{
