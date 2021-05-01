@@ -99,7 +99,10 @@
         </div>
      </div>
 </template>
+
 <script>
+import axios from 'axios'
+
 export default {
     name: 'EditLead',
     data(){
@@ -125,6 +128,26 @@ export default {
                 })
 
             this.$store.commit('setIsLoading', false)
+        },
+         async submitForm(){
+            
+            this.$store.commit('setIsLoading', true)
+
+            const leadID= this.$route.params.id
+            
+            await axios
+                .patch(`/api/v1/leads/${leadID}/`, this.lead) //remember the end slash
+                .then(response=>{
+
+                    console.log(response)
+
+                    this.$router.push(`/dashboard/leads/${leadID}`)
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+
+                this.$store.commit('setIsLoading',false)
         }
     }
     
