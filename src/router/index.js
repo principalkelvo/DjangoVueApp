@@ -13,6 +13,7 @@ import MyAccount from '../views/dashboard/MyAccount.vue'
 import Leads from '../views/dashboard/Leads.vue'
 import AddLead from '../views/dashboard/AddLead.vue'
 import Lead from '../views/dashboard/Lead.vue'
+import EditLead from '../views/dashboard/EditLead.vue'
 
 const routes = [
   {
@@ -74,6 +75,14 @@ const routes = [
     path: '/dashboard/leads/:id', //create a dyamic route that will pick a user with id
     name: 'Lead',
     component: Lead,
+    meta: {
+      requireLogin:true
+    }
+  },
+  {
+    path: '/dashboard/leads/:id/edit', //create a dyamic route that will pick a user with id
+    name: 'EditLead',
+    component: EditLead,
     meta: {
       requireLogin:true
     }
