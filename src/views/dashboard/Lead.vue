@@ -44,5 +44,25 @@ export default {
             lead:{}
         }
     },
+     mounted(){
+        this.getLeads()
+    },
+    methods:{
+        async getLeads(){
+            this.$store.commit('setIsLoading', true)
+
+            const leadID= this.$route.params.id
+            axios
+                .get(`/api/v1/leads/${leadID}`)// used backslash `` not quotation
+                .then(response=>{
+                    this.leads= response.data
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+
+            this.$store.commit('setIsLoading', false)
+        }
+    }
 }
 </script>
