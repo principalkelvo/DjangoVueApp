@@ -11,12 +11,12 @@
                 <div class="box">
                     <h2 class="subtitle">Details</h2>
                     <!--add information-->
-                    <p><strong>Status:</strong>{{lead.status}}</p>
-                    <p><strong>Priority:</strong>{{lead.priority}}</p>
-                    <p><strong>Confidence:</strong>{{lead.confidence}}</p>
-                    <p><strong>Estimated value:</strong>{{lead.estimated_value}}</p>
-                    <p><strong>Created at:</strong>{{lead.created_at}}</p>
-                    <p><strong>Modified at:</strong>{{lead.modified_at}}</p>
+                    <p><strong>Status: </strong>{{lead.status}}</p>
+                    <p><strong>Priority: </strong>{{lead.priority}}</p>
+                    <p><strong>Confidence: </strong>{{lead.confidence}}</p>
+                    <p><strong>Estimated value: </strong>{{lead.estimated_value}}</p>
+                    <p><strong>Created at: </strong>{{lead.created_at}}</p>
+                    <p><strong>Modified at: </strong>{{lead.modified_at}}</p>
                 </div>
             </div>
 
@@ -24,10 +24,10 @@
                 <div class="box">
                     <h2 class="subtitle">Contact information</h2>
                     <!--add information-->
-                    <p><strong>Contact person:</strong>{{lead.conact_person}}</p>
-                    <p><strong>Email:</strong>{{lead.email}}</p>
-                    <p><strong>Phone:</strong>{{lead.phone}}</p>
-                    <p><strong>Website:</strong>{{lead.website}}</p>
+                    <p><strong>Contact person: </strong>{{lead.contact_person}}</p>
+                    <p><strong>Email: </strong>{{lead.email}}</p>
+                    <p><strong>Phone: </strong>{{lead.phone}}</p>
+                    <p><strong>Website: </strong>{{lead.website}}</p>
                 </div>
             </div>
 
@@ -45,17 +45,17 @@ export default {
         }
     },
      mounted(){
-        this.getLeads()
+        this.getLead()
     },
     methods:{
-        async getLeads(){
+        async getLead(){
             this.$store.commit('setIsLoading', true)
 
             const leadID= this.$route.params.id
             axios
                 .get(`/api/v1/leads/${leadID}`)// used backslash `` not quotation
                 .then(response=>{
-                    this.leads= response.data
+                    this.lead= response.data
                 })
                 .catch(error=>{
                     console.log(error)
