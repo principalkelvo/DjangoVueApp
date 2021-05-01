@@ -6,7 +6,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-end">
-                
+
                 <!--add leads link on the menu-->
                 <router-link to="/dashboard/leads" class="navbar-item">Leads</router-link>
 
@@ -21,6 +21,10 @@
                             <router-link to="/log-in" class="button is-light">Log In</router-link>
                         </template>
 
+                        <!--add my-account button on the menu-->
+                        <template v-else>
+                            <router-link to="/dashboard/my-account" class="button is-info">My account</router-link>
+                        </template>
                     </div>
                 </div>
             </div>
