@@ -29,6 +29,8 @@ export default {
   beforeCreate(){
     this.$store.commit('initializeStore')
 
+    console.log(this.$store.state.user)
+
     //check if token exists
     if (this.$store.state.token){
     axios.defaults.headers.common['Authorization']="Token " + this.$store.state.token //remember the space after "Token "
