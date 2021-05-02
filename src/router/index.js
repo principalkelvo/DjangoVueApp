@@ -14,6 +14,7 @@ import Leads from '../views/dashboard/Leads.vue'
 import AddLead from '../views/dashboard/AddLead.vue'
 import Lead from '../views/dashboard/Lead.vue'
 import EditLead from '../views/dashboard/EditLead.vue'
+import AddTeam from '../views/dashboard/AddTeam.vue'
 
 const routes = [
   {
