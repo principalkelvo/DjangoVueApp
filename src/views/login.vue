@@ -73,8 +73,7 @@ export default {
                     //save token to localstorage
                     localStorage.setItem('token', token)
 
-                    //redirect user to his account
-                    this.$router.push('/dashboard/my-account')
+                    
                 })
                 .catch(error => {
                         if(error.response){
@@ -99,6 +98,9 @@ export default {
                             //save info to local storage
                             localStorage.setItem('username',response.data.username),
                             localStorage.setItem('userid',response.data.id)
+
+                            //redirect user to his account
+                            this.$router.push('/dashboard/my-account')
 
                         })
 
