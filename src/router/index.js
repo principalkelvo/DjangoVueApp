@@ -86,6 +86,14 @@ const routes = [
     meta: {
       requireLogin:true
     }
+  },
+  {
+    path: '/dashboard/add-team',
+    name: 'AddTeam',
+    component: AddTeam,
+    meta: {
+      requireLogin:true
+    }
   }
   
 ]
