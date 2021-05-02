@@ -96,7 +96,7 @@ export default {
                                     })
                             
                             //save info to local storage
-                            localStorage.setItem('username',response.data.username),
+                            localStorage.setItem('username',response.data.username)
                             localStorage.setItem('userid',response.data.id)
 
                             //redirect user to his account
