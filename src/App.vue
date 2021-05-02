@@ -34,9 +34,14 @@ export default {
     axios.defaults.headers.common['Authorization']="Token " + this.$store.state.token //remember the space after "Token "
     }
     //if you are not authenticated
-  else{
-    axios.defaults.headers.common['Authorization']= ""
-  }
+    else{
+      axios.defaults.headers.common['Authorization']= ""
+    }
+
+    //If you dont have team,send to create team page
+    if(!this.$store.state.team.id){
+      this.$router.push('/dashboard/add-team')
+    }
   }
 
 }
