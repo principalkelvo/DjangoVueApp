@@ -139,7 +139,7 @@ export default {
                 .then(response=>{
 
                     toast({
-                            message:'The head was updated',
+                            message:'The lead was updated',
                             type:'is-success',
                             dismissible: true,
                             pauseOnHover: true,
