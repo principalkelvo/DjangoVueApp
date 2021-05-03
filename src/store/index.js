@@ -7,10 +7,10 @@ export default createStore({
     token: '',
     user:{
       id: 0,
-      username:''
+      username: ''
     },
     team:{
-      id:0,
+      id: 0,
       name:''
     }
   },
