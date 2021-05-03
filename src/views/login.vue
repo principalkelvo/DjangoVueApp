@@ -74,6 +74,8 @@ export default {
                     localStorage.setItem('token', token)
 
                     
+
+                    
                 })
                 .catch(error => {
                         if(error.response){
@@ -86,29 +88,27 @@ export default {
                         }
                     })
 
-                    //implementing user info in the vuex to login
-                    await axios
-                        .get('/api/v1/users/me')
-                        .then(response=>{
-                            this.$store.commit(
-                                'setUser',{
-                                    'id': response.data.id,'username':response.data.username
-                                    })
+            //implementing user info in the vuex to login
+            
+            await axios
+                .get('/api/v1/users/me')
+                .then(response=>{
+                        this.$store.commit('setUser',{ 'id': response.data.id,'username':response.data.username })
                             
-                            //save info to local storage
-                            localStorage.setItem('username',response.data.username)
-                            localStorage.setItem('userid',response.data.id)
+                        //save info to local storage
+                        localStorage.setItem('username',response.data.username)
+                        localStorage.setItem('userid',response.data.id)
 
-                            //redirect user to his account
-                            this.$router.push('/dashboard/my-account')
-
+                        //redirect user to his account
+                        this.$router.push('/dashboard/my-account')
+                        
                         })
 
-                        .catch(error=>{
-                            console.log(error)
-                        })
+                .catch(error=>{
+                    console.log(error)
+                })        
                     
-                    this.$store.commit('setIsLoading', false)
+            this.$store.commit('setIsLoading', false)
         }
     }
 }
