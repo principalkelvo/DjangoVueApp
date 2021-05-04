@@ -32,8 +32,14 @@
 </template>
 <script>
 import axios from 'axios'
+import { toast } from 'bulma-toast'
 export default {
     name: 'AddTeam',
+    data(){
+        return{
+            name:''
+        }
+    },
     methods:{
         async submitForm(){
             this.$store.commit('setIsLoading', true)
@@ -61,6 +67,7 @@ export default {
                 .catch(error=>{
                     console.log(error)
                 })
+            this.$store.commit('setIsLoading', false)
         }
     }
 }
