@@ -3,6 +3,8 @@
         <div class="columns is-multiline">
             <div class="column is-12">
                 <h1 class="title">{{team.name}}</h1>
+
+                <router-link :to="{'name':'AddMember'}" class="button is-primary">Add member</router-link>
                 <div class="column is-12">
                     <h2 class="subtitle">Members</h2>
                     <!--create table to run data-->
