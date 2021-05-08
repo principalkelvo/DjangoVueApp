@@ -68,7 +68,7 @@ export default {
                     //save token to store in the vue
                     this.$store.commit('setToken', token)
 
-                    axios.defaults.headers.common['Authorization']= 'Token'+ token
+                    axios.defaults.headers.common['Authorization']= 'Token '+ token //dont forget the space after token
 
                     //save token to localstorage
                     localStorage.setItem('token', token)
@@ -108,7 +108,7 @@ export default {
                 })
             
             await axios
-                .get('api/v1/teams/get_my_team/')
+                .get('/api/v1/teams/get_my_team/')
                 .then(response=>{
                     this.$store.commit('setTeam',{'id': response.data.id,'name':response.data.name})
 
