@@ -89,8 +89,7 @@ export default {
                             duration: 2000,
                             position: 'bottom-right',
                         })
-
-                        this.$router.push({'name':'Team'})
+                        
                         console.log("response")
                         
                     })
@@ -104,6 +103,24 @@ export default {
                         else if(error.message){
                             this.errors.push('Something went wrong. Please try again')
                         }
+                    })
+
+                    await axios
+                    .post('api/v1/users/', formData)
+                    .then(response=> {
+                        //push a toast message on the bottom of the page
+                        toast({
+                            message:'The member was added',
+                            type:'is-success',
+                            dismissible: true,
+                            pauseOnHover: true,
+                            duration: 2000,
+                            position: 'bottom-right',
+                        })
+
+                        this.$router.push({'name':'Team'})
+                        console.log("response")
+                        
                     })
 
                     this.$store.commit('setIsLoading', false)
