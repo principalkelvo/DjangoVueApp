@@ -105,18 +105,12 @@ export default {
                         }
                     })
 
+                    const emailData={'email':this.username}
+
                     await axios
-                    .post('api/v1/users/', formData)
+                    .post('api/v1/teams/add_member/', emailData)
                     .then(response=> {
-                        //push a toast message on the bottom of the page
-                        toast({
-                            message:'The member was added',
-                            type:'is-success',
-                            dismissible: true,
-                            pauseOnHover: true,
-                            duration: 2000,
-                            position: 'bottom-right',
-                        })
+                        
 
                         this.$router.push({'name':'Team'})
                         console.log("response")
