@@ -89,10 +89,20 @@ export default {
                             duration: 2000,
                             position: 'bottom-right',
                         })
-                        
-                        console.log("response")
-                        
+                       
                     })
+                        const emailData={'email':this.username}
+
+                        axios
+                        .post('api/v1/teams/add_member/', emailData)
+                        .then(response=> {
+                            
+
+                            this.$router.push({'name':'Team'})
+                            
+                            
+                        })
+
                      //catch errors 
                     .catch(error => {
                         if(error.response){
@@ -105,17 +115,6 @@ export default {
                         }
                     })
 
-                    const emailData={'email':this.username}
-
-                    await axios
-                    .post('api/v1/teams/add_member/', emailData)
-                    .then(response=> {
-                        
-
-                        this.$router.push({'name':'Team'})
-                        console.log("response")
-                        
-                    })
 
                     this.$store.commit('setIsLoading', false)
             }
