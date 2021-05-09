@@ -90,18 +90,25 @@ export default {
                             position: 'bottom-right',
                         })
                        
-                    })
                         const emailData={'email':this.username}
 
-                        axios
-                        .post('api/v1/teams/add_member/', emailData)
-                        .then(response=> {
-                            
-
-                            this.$router.push({'name':'Team'})
-                            
-                            
+                            axios
+                            .post('/api/v1/teams/add_member/', emailData)
+                            .then(response=> {
+                                this.$router.push({'name':'Team'})
+                            })
+                            .catch(error => {
+                            if(error.response){
+                                for(const property in error.response.data){
+                                    this.errors.push(`${property}: ${error.response.data[property]}`) //do not use quotes this are backslash
+                                }
+                            }
+                            else if(error.message){
+                                this.errors.push('Something went wrong. Please try again')
+                            }
                         })
+                    })
+                        
 
                      //catch errors 
                     .catch(error => {
