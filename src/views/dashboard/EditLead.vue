@@ -160,7 +160,7 @@ export default {
                 .then(response=>{
 
                     toast({
-                            message:'The head was updated',
+                            message:'The lead was updated',
                             type:'is-success',
                             dismissible: true,
                             pauseOnHover: true,
@@ -176,7 +176,7 @@ export default {
 
                 this.$store.commit('setIsLoading',false)
         },
-        
+
         async getTeam(){
             this.$store.commit('setIsLoading', true)
 
