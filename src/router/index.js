@@ -18,6 +18,7 @@ import AddTeam from '../views/dashboard/AddTeam.vue'
 import AddMember from '../views/dashboard/AddMember.vue'
 import Team from '../views/dashboard/Team.vue'
 import Clients from '../views/dashboard/Clients.vue'
+import AddClient from '../views/dashboard/AddClient.vue'
 
 
 const routes = [
@@ -120,6 +121,14 @@ const routes = [
     path: '/dashboard/clients',
     name: 'Clients',
     component: Clients,
+    meta: {
+      requireLogin:true
+    }
+  },
+  {
+    path: '/dashboard/clients/add',
+    name: 'AddClient',
+    component: AddClient,
     meta: {
       requireLogin:true
     }
