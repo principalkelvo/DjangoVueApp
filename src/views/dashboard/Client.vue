@@ -47,7 +47,7 @@ export default {
             this.$store.commit('setIsLoading', true)
 
             const clientID= this.$route.params.id
-            axios
+            await axios
                 .get(`/api/v1/clients/${clientID}`)// used backslash `` not quotation
                 .then(response=>{
                     this.client= response.data
