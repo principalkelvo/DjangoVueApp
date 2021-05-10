@@ -8,6 +8,7 @@
             </div>
 
             <div class="column is-12 ">
+                <template v-if="clients.length">
                 <table class="table is-fullwidth">
                     <thead>
                         <tr>
@@ -26,6 +27,10 @@
                         </tr>
                     </tbody>
                 </table>
+                </template>
+                <template v-else>
+                    <p>You dont have any clients yet</p>
+                </template>
             </div>
 
         </div>
