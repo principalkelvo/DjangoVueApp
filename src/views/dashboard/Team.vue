@@ -5,7 +5,7 @@
                 <h1 class="title">{{team.name}}</h1>
                 
                 <!--make only of the team can add members-->
-                <template v-if="team.create_by.id === parseInt($store.state.userid)">
+                <template v-if="team.created_by.id === parseInt($store.state.user.id)">
                     <router-link :to="{'name':'AddMember'}" class="button is-primary">Add member</router-link>
                 </template>
 
