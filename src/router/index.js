@@ -20,7 +20,7 @@ import Team from '../views/dashboard/Team.vue'
 import Clients from '../views/dashboard/Clients.vue'
 import Client from '../views/dashboard/Client.vue'
 import AddClient from '../views/dashboard/AddClient.vue'
-
+import EditClient from '../views/dashboard/EditClient.vue'
 
 const routes = [
   {
@@ -142,6 +142,14 @@ const routes = [
       requireLogin:true
     }
   },
+  {
+    path: '/dashboard/clients/:id/edit', //create a dyamic route that will pick a user with id
+    name: 'EditClient',
+    component: EditClient,
+    meta: {
+      requireLogin:true
+    }
+  }
   
 ]
 
