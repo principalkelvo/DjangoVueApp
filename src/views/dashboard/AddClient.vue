@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">AddClient</h1>
+                <h1 class="title">Add client</h1>
             </div>
             <div class="column is-12">
                 <form @submit.prevent="submitForm">
