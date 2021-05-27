@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-             <div class="column is-6">
+            <div class="column is-6">
                 <div class="box">
                     <h2 class="subtitle">Contact information</h2>
                     <!--add information-->
@@ -23,8 +23,14 @@
                     <p><strong>Email: </strong>{{client.email}}</p>
                     <p><strong>Phone: </strong>{{client.phone}}</p>
                     <p><strong>Website: </strong>{{client.website}}</p>
+                    
                 </div>
             </div>
+            <hr>
+                <div class="column is-12">
+                    <h2 class="subtitle">Notes</h2>
+                    <router-link :to="{name:'AddNote',params:{id:client.id}}" class="button is-success mb-6">Add note</router-link>
+                </div>
 
         </div>
     </div>
