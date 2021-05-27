@@ -14,34 +14,14 @@
 
                         </div>
                     </div>
-                    <!--contact person field-->
+                    <!--body field-->
                     <div class="field">
-                        <label>Contact person</label>
+                        <label>body</label>
                         <div class="control">
-                            <input type="text" class="input" v-model="contact_person">
+                            <textarea class="textarea" v-model="body"></textarea>
                         </div>
                     </div>
-                    <!--email field-->
-                    <div class="field">
-                        <label>Email</label>
-                        <div class="control">
-                            <input type="text" class="input" v-model="email">
-                        </div>
-                    </div>
-                    <!--phone field-->
-                    <div class="field">
-                        <label>Phone</label>
-                        <div class="control">
-                            <input type="text" class="input" v-model="phone">
-                        </div>
-                    </div>
-                    <!--website field-->
-                    <div class="field">
-                        <label>Website</label>
-                        <div class="control">
-                            <input type="text" class="input" v-model="website">
-                        </div>
-                    </div>
+                    
                     <!--submit button-->
                     <div class="field">
                         <div class="control">
@@ -61,15 +41,11 @@ import axios from 'axios'
 import { toast } from 'bulma-toast'
 
 export default {
-    name: 'AddClient',
+    name: 'AddNote',
     data(){
         return{
             name:'',
-            contact_person:'',
-            email:'',
-            phone:'',
-            website:'',
-            
+            body:'',            
         }
     },
     methods:{
@@ -77,20 +53,18 @@ export default {
             
             this.$store.commit('setIsLoading', true)
 
-            const client= {
+            const note= {
                 name: this.name,
-                contact_person:this.contact_person,
-                email:this.email,
-                phone: this.phone,
-                website: this.website,
+                body:this.body,
+                client_id: this.$route.params.id
 
             }
             await axios
-                .post('/api/v1/clients/', client)
+                .post('/api/v1/notes/', note)
                 .then(response=>{
 
                     toast({
-                            message:'The client was updated',
+                            message:'The note was updated',
                             type:'is-success',
                             dismissible: true,
                             pauseOnHover: true,
@@ -98,7 +72,7 @@ export default {
                             position: 'bottom-right',
                         })
 
-                    this.$router.push('/dashboard/clients')
+                    this.$router.push({name:'Client',params:{id:this.$route.params.id}})
                 })
                 .catch(error=>{
                     console.log(error)
