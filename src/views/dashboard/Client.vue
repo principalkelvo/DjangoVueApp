@@ -38,6 +38,8 @@
                             </h3>
 
                             <p>{{note.body}}</p>
+
+                            <router-link :to="{name:'EditNote',params:{id:client.id, note_id:note.id}}" class="button is-success mt-6">Edit note</router-link>
                     </div>
                 </div>
 
