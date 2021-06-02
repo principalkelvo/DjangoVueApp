@@ -57,8 +57,9 @@ export default {
             this.$store.commit('setIsLoading', true)
 
             const noteID= this.$route.params.note_id
+            const clientID= this.$route.params.id
             await axios
-                .get(`/api/v1/notes/${noteID}`)// used backslash `` not quotation
+                .get(`/api/v1/notes/${noteID}/?client_id=${clientID}`)// used backslash `` not quotation
                 .then(response=>{
                     this.note= response.data
                 })
@@ -73,8 +74,9 @@ export default {
             
             this.$store.commit('setIsLoading', true)
 
+            const clientID= this.$route.params.id
             await axios
-                .patch(`/api/v1/notes/${this.note.id}`, this.note)
+                .patch(`/api/v1/notes/${this.note.id}/?client_id=${clientID}`, this.note)
                 .then(response=>{
 
                     toast({
