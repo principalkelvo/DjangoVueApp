@@ -15,7 +15,8 @@
                     <table class="table is-fullwidth">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Userame</th>
+                                <th>Full name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,7 @@
                             v-for="member in team.members"
                             v-bind:key="member.id">
                             <td>{{member.username}}</td>
+                            <td>{{member.first_name}} {{member.last_name}}</td>
                             </tr>
                         </tbody>
                     </table>
