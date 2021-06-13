@@ -2,23 +2,23 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">Edit note</h1>
+                <h1 class="title">Edit member</h1>
             </div>
             <div class="column is-12">
                 <form @submit.prevent="submitForm">
                     <!--name field-->
                     <div class="field">
-                        <label>name</label>
+                        <label>First name</label>
                         <div class="control">
-                            <input type="text" class="input" v-model="note.name">
+                            <input type="text" class="input" v-model="user.first_name">
 
                         </div>
                     </div>
                     <!--body field-->
                     <div class="field">
-                        <label>body</label>
+                        <label>Last name</label>
                         <div class="control">
-                            <textarea class="textarea" v-model="note.body"></textarea>
+                            <input type="text" class="input" v-model="user.last_name">
                         </div>
                     </div>
                     
@@ -41,27 +41,26 @@ import axios from 'axios'
 import { toast } from 'bulma-toast'
 
 export default {
-    name: 'EditNote',
+    name: 'EditMember',
     data(){
         return{
-            note:{}          
+            user:{}          
         }
     },
 
     mounted(){
-        this.getNote()
+        this.getUser()
     },
 
     methods:{
-        async getNote(){
+        async getUser(){
             this.$store.commit('setIsLoading', true)
 
-            const noteID= this.$route.params.note_id
-            const clientID= this.$route.params.id
+            const userID= this.$route.params.id
             await axios
-                .get(`/api/v1/notes/${noteID}/?client_id=${clientID}`)// used backslash `` not quotation
+                .get(`/api/v1/teams/member/${userID}`)// used backslash `` not quotation
                 .then(response=>{
-                    this.note= response.data
+                    this.user= response.data
                 })
                 .catch(error=>{
                     console.log(error)
@@ -74,13 +73,13 @@ export default {
             
             this.$store.commit('setIsLoading', true)
 
-            const clientID= this.$route.params.id
+            const userID= this.$route.params.id
             await axios
-                .patch(`/api/v1/notes/${this.note.id}/?client_id=${clientID}`, this.note)
+                .patch(`/api/v1/teams/member/${userID}`, this.user)
                 .then(response=>{
 
                     toast({
-                            message:'The note was updated',
+                            message:'The user was updated',
                             type:'is-success',
                             dismissible: true,
                             pauseOnHover: true,
@@ -88,7 +87,7 @@ export default {
                             position: 'bottom-right',
                         })
 
-                    this.$router.push({name:'Client',params:{id:this.$route.params.id}})
+                    this.$router.push({name:'MyAccount'})
                 })
                 .catch(error=>{
                     console.log(error)
