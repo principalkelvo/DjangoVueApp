@@ -14,7 +14,7 @@
                     <!--add information-->
                     <template v-if="lead.assigned_to">
                         <p>
-                            <strong>Assigned to: </strong>{{lead.assigned_to.username}}
+                            <strong>Assigned to: </strong>{{lead.assigned_to.first_name}} {{lead.assigned_to.last_name}}
                             </p>
                     </template>
                     <p><strong>Status: </strong>{{lead.status}}</p>
