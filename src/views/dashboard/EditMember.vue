@@ -58,7 +58,7 @@ export default {
 
             const userID= this.$route.params.id
             await axios
-                .get(`/api/v1/teams/member/${userID}`)// used backslash `` not quotation
+                .get(`/api/v1/teams/member/${userID}/`)// used backslash `` not quotation
                 .then(response=>{
                     this.user= response.data
                 })
@@ -75,7 +75,7 @@ export default {
 
             const userID= this.$route.params.id
             await axios
-                .patch(`/api/v1/teams/member/${userID}`, this.user)
+                .put(`/api/v1/teams/member/${userID}/`, this.user)
                 .then(response=>{
 
                     toast({
