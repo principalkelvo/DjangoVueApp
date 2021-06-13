@@ -4,7 +4,10 @@
             <div class="column is-12">
                 <h1 class="title">{{lead.company}}</h1>
 
-                <router-link :to="{name: 'EditLead', params:{id:lead.id}}" class="button is-light">Edit</router-link>
+                <div class="buttons">
+                    <router-link :to="{name: 'EditLead', params:{id:lead.id}}" class="button is-light">Edit</router-link>
+                    <button @click="convertToClient" class="button is-info"></button>
+                </div>
             </div>
 
             <div class="column is-6">
@@ -67,6 +70,24 @@ export default {
                     console.log(error)
                 })
 
+
+            this.$store.commit('setIsLoading', false)
+        },
+        async convertToClient(){
+            this.$store.commit('setIsLoading', true)
+            const leadID= this.$route.params.id
+            const data={
+                lead_id: leadID
+            }
+            await axios
+                .post('/api/v1/convert_lead_to_client/', data)
+                .then(response=>{
+                    console.log('converted to client')
+                    this.$route.push('/dashboard/clients')
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
             this.$store.commit('setIsLoading', false)
         }
     }
