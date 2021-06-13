@@ -4,7 +4,13 @@
             <div class="column is-12">
                 <h1 class="title">MyAccount</h1>
             </div>
-            <button @click="logout()" class="button is-danger">Log Out</button>
+            <div class="column is-12">
+                <div class="buttons">
+                    <router-link :to="{name:'EditMember',params:{id:$store.state.user.id}}" class="button is-light">Edit</router-link>
+                
+                    <button @click="logout()" class="button is-danger">Log Out</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>        
