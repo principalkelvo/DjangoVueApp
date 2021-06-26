@@ -32,6 +32,10 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="buttons">
+                    <button class="button is-light" @click="goToPreviousPage()" v-if="showPreviousButton">Previous</button>
+                    <button class="button is-light" @click="goToNextPage()" v-if="showNextButton">Next</button>
+                </div>
             </div>
 
         </div>
@@ -45,20 +49,44 @@ export default {
     name: 'Leads',
     data(){
         return{
-            leads:[]
+            leads:[],
+            //add next and previous button
+            showNextButton:false,
+            showPreviousButton:false,
+            currentPage:1
         }
     },
     mounted(){
         this.getLeads()
     },
     methods:{
+        goToPreviousPage(){
+            this.currentPage -= 1
+            this.getLeads()
+        },
+        goToNextPage(){
+            this.currentPage += 1
+            this.getLeads()
+        },
         async getLeads(){
             this.$store.commit('setIsLoading', true)
 
+            this.showNextButton=false
+            this.showPreviousButton=false
+
             await axios
-                .get('/api/v1/leads/')
+                .get(`/api/v1/leads/?page=${this.currentPage}`)
                 .then(response=>{
                     this.leads= response.data.results
+
+                    //make next button respond
+                    if(response.data.next){
+                        this.showNextButton=true
+                    }
+                    //make previous button respond
+                    if(response.data.previous){
+                        this.showPreviousButton=true
+                    }
                 })
                 .catch(error=>{
                     console.log(error)
