@@ -58,7 +58,7 @@ export default {
             await axios
                 .get('/api/v1/leads/')
                 .then(response=>{
-                    this.leads= response.data
+                    this.leads= response.data.results
                 })
                 .catch(error=>{
                     console.log(error)
