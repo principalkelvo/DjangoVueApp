@@ -2,7 +2,38 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">{{plan.name}}</h1>
+                <h1 class="title">Plans</h1>
+            </div>
+            <div class="column is-4">
+                <div class="box">
+                    <h2 class="subtitle">Free</h2>
+                    <h4 class="is-size-3">$0</h4>
+
+                    <p>Max 5 clients</p>
+                    <p>Max 5 leads</p>
+                    <button @click="subscribe('free')" class="button is-primary">Subscribe</button>
+                </div>
+
+            </div>
+            <div class="column is-4">
+                <div class="box">
+                    <h2 class="subtitle">Small team</h2>
+                    <h4 class="is-size-3">$10</h4>
+
+                    <p>Max 15 clients</p>
+                    <p>Max 15 leads</p>
+                    <button @click="subscribe('smallteam')" class="button is-primary">Subscribe</button>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="box">
+                    <h2 class="subtitle">Big team</h2>
+                    <h4 class="is-size-3">$20</h4>
+
+                    <p>Max 25 clients</p>
+                    <p>Max 25 leads</p>
+                    <button @click="subscribe('bigteam')" class="button is-primary">Subscribe</button>
+                </div>
             </div>
         </div>
     </div>
