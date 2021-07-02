@@ -8,7 +8,7 @@
                 <form @submit.prevent="submitForm">
                     <!--name field-->
                     <div class="field">
-                        <label>name</label>
+                        <label>Name</label>
                         <div class="control">
                             <input type="text" class="input" v-model="name">
 
