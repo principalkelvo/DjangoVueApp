@@ -25,6 +25,7 @@ import AddNote from '../views/dashboard/AddNote.vue'
 import EditNote from '../views/dashboard/EditNote.vue'
 import EditMember from '../views/dashboard/EditMember.vue'
 import Plans from '../views/dashboard/Plans.vue'
+import PlansThankyou from '../views/dashboard/PlansThankyou.vue'
 
 const routes = [
   {
@@ -142,6 +143,14 @@ const routes = [
     path: '/dashboard/team/plans',
     name: 'Plans',
     component: Plans,
+    meta: {
+      requireLogin:true
+    }
+  },
+  {
+    path: '/dashboard/team/plans/thankyou',
+    name: 'PlansThankyou',
+    component: PlansThankyou,
     meta: {
       requireLogin:true
     }
