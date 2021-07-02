@@ -45,7 +45,31 @@ import axios from 'axios'
 export default {
     name: 'Plans',
     methods:{
-        
+        async subscribe(plan){
+            this.$store.commit('setIsLoading',true)
+            const data={
+                plan:plan
+            }
+
+            await axios
+                .post('/api/v1/teams/upgrade_plan/',data)
+                .then(response=>{
+                    console.log(response.data)
+
+                    this.$store.commit('setTeam',{
+                        'id': response.data.id,
+                        'name':response.data.name,
+                        'plan':response.data.plan.name,
+                        'max_leads':response.data.plan.max_leads,
+                        'max_clients':response.data.plan.max_clients
+
+                     })
+                    
+                    this.$router.push('/dashboard/team')
+
+                })
+            this.$store.commit('setIsLoading',false)
+        }
     }
 }
 </script>
