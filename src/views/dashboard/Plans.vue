@@ -42,6 +42,9 @@
 
 <script> 
 import axios from 'axios'
+import { toast } from 'bulma-toast'
+
+
 export default {
     name: 'Plans',
     methods:{
@@ -64,6 +67,14 @@ export default {
                         'max_clients':response.data.plan.max_clients
 
                      })
+                     toast({
+                            message:'The team was added',
+                            type:'is-success',
+                            dismissible: true,
+                            pauseOnHover: true,
+                            duration: 2000,
+                            position: 'bottom-right',
+                        })
                     
                     this.$router.push('/dashboard/team')
 
